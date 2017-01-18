@@ -1,0 +1,12 @@
+version: "2"
+services:
+    web:
+        build:
+            context: .
+            dockerfile: Dockerfile_node
+        volumes: # Use this to mount app from local disk
+            - ./:/usr/src/app
+        ports:
+            - "8080:8080"
+            - "5858:5858"
+        entrypoint: node --debug=5858 app.js
